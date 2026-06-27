@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #0f172a;
+
+    color: white;
+
+    font-family: sans-serif;
+
+    gap: 20px;
+}
+
+#character {
+
+    animation:
+        breathe 4s ease-in-out infinite;
+}
+
+#face {
+
+    width: 260px;
+    height: 320px;
+
+    background: #f5d0a9;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    box-shadow:
+        0 0 40px rgba(255,255,255,0.15);
+
+    transition: all 0.3s ease;
+}
+
+.eye {
+
+    width: 22px;
+    height: 22px;
+
+    background: black;
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 110px;
+
+    transition: all 0.1s;
+}
+
+#leftEye {
+    left: 70px;
+}
+
+#rightEye {
+    right: 70px;
+}
+
+#nose {
+
+    width: 10px;
+    height: 35px;
+
+    background: rgba(0,0,0,0.15);
+
+    position: absolute;
+
+    left: 50%;
+    top: 140px;
+
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+}
+
+#mouth {
+
+    width: 80px;
+    height: 20px;
+
+    background: #2b2b2b;
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 70px;
+
+    transform: translateX(-50%) scaleY(1);
+
+    transform-origin: center center;
+
+    border-radius: 0 0 40px 40px;
+
+    overflow: hidden;
+
+    transition: all 0.08s linear;
+}
+
+#mouth::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 40px;
+    height: 20px;
+
+    background: #ff6b81;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    border-radius: 20px 20px 0 0;
+}
+
+button {
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+#status {
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+#response {
+
+    width: 700px;
+    max-width: 90vw;
+
+    background: rgba(255,255,255,0.05);
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    min-height: 80px;
+}
+
+.idle {
+    box-shadow: 0 0 40px rgba(255,255,255,0.15);
+}
+
+.listening {
+    box-shadow: 0 0 50px rgba(0,255,150,0.5);
+}
+
+.thinking {
+    box-shadow: 0 0 50px rgba(255,200,0,0.5);
+}
+
+.speaking {
+    box-shadow: 0 0 60px rgba(0,150,255,0.6);
+}
+
+@keyframes breathe {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
